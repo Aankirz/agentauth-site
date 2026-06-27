@@ -10,19 +10,15 @@
   --text-dim: oklch(62% 0.015 280);
   --line: oklch(90% 0.008 80);
 
-  /* accents: Firefox flame (orange → magenta → violet) + MetaMask warmth */
-  --honey: oklch(72% 0.19 52);
-  --honey-deep: oklch(60% 0.21 42);
-  --flame-1: oklch(75% 0.2 60);
-  --flame-2: oklch(64% 0.25 22);
-  --flame-3: oklch(56% 0.23 340);
-  --flame: linear-gradient(125deg, var(--flame-1), var(--flame-2) 52%, var(--flame-3));
-  --violet: oklch(58% 0.2 300);
-  --teal: oklch(70% 0.11 195);
-  --teal-deep: oklch(55% 0.13 320);
-  --green: oklch(72% 0.16 150);
-  --red: oklch(63% 0.2 25);
-  --on-accent: oklch(24% 0.05 40);
+  /* restrained palette: warm neutrals + one confident orange accent */
+  --honey: oklch(66% 0.15 50);
+  --honey-deep: oklch(56% 0.16 45);
+  --honey-soft: oklch(66% 0.15 50 / 0.12);
+  --teal: var(--honey);
+  --teal-deep: var(--honey-deep);
+  --green: oklch(64% 0.14 155);
+  --red: oklch(60% 0.19 25);
+  --on-accent: oklch(99% 0.01 60);
 
   /* code surface (always dark) */
   --code-bg: oklch(26% 0.025 280);
@@ -70,7 +66,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-::selection { background: oklch(76% 0.14 70 / 0.35); }
+::selection { background: var(--honey-soft); }
 a { color: inherit; text-decoration: none; }
 
 .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: 1.5rem; }
@@ -97,9 +93,8 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 600; line-height: 1.08;
 /* ---------- buttons ---------- */
 .btn { font-family: var(--font-body); font-weight: 500; font-size: 1rem; padding: 0.8rem 1.4rem; border-radius: 100px; border: 1px solid transparent; cursor: pointer; background: var(--surface); color: var(--text); box-shadow: var(--shadow-sm); transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; }
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.btn-primary { background: var(--flame); background-size: 140% 140%; color: oklch(99% 0.01 60); border-color: transparent; box-shadow: 0 8px 24px -8px oklch(64% 0.25 22 / 0.5); animation: flameShift 8s var(--ease-in-out, ease-in-out) infinite; }
-.btn-primary:hover { background-position: 100% 100%; }
-@keyframes flameShift { 0%,100% { background-position: 0% 0% } 50% { background-position: 100% 100% } }
+.btn-primary { background: var(--honey-deep); color: var(--on-accent); border-color: transparent; box-shadow: 0 6px 18px -8px var(--honey-deep); }
+.btn-primary:hover { background: oklch(52% 0.16 45); }
 .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--line); }
 
 /* ---------- hero ---------- */
@@ -108,7 +103,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 600; line-height: 1.08;
 .hero-grid > * { min-width: 0; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .hero-art { order: -1; } }
 
-.badge-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; color: var(--honey-deep); background: oklch(76% 0.14 70 / 0.14); border: 1px solid oklch(76% 0.14 70 / 0.3); padding: 0.4rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem; }
+.badge-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; color: var(--honey-deep); background: var(--honey-soft); border: 1px solid oklch(66% 0.15 50 / 0.35); padding: 0.4rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem; }
 h1 { font-size: clamp(2.5rem, 1.5rem + 4.2vw, 4.3rem); letter-spacing: -0.035em; }
 h1 .hl { color: var(--honey-deep); }
 .lede { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); color: var(--text-soft); margin-top: 1.4rem; max-width: 40ch; line-height: 1.5; }
@@ -119,10 +114,9 @@ h1 .hl { color: var(--honey-deep); }
 
 /* ---------- hero art / dog ---------- */
 .hero-art { display: grid; place-items: center; position: relative; }
-/* Firefox globe-ring: a glowing flame halo behind the fox */
-.hero-art::before { content: ''; position: absolute; width: 74%; aspect-ratio: 1; border-radius: 50%; background: var(--flame); opacity: 0.92; filter: blur(2px); z-index: 0; animation: ringSpin 18s linear infinite; }
-.hero-art::after { content: ''; position: absolute; width: 60%; aspect-ratio: 1; border-radius: 50%; background: var(--bg); z-index: 0; }
-@keyframes ringSpin { to { transform: rotate(360deg) } }
+/* clean concentric "scope rings" behind the fox — calm, on-concept (a gate/radar) */
+.hero-art::before { content: ''; position: absolute; width: 86%; aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--line); box-shadow: 0 0 0 1px var(--line) inset; z-index: 0; }
+.hero-art::after { content: ''; position: absolute; width: 58%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--honey-soft), transparent 70%); z-index: 0; }
 .dog-illu { position: relative; z-index: 1; width: clamp(230px, 42vw, 340px); height: auto; }
 .dog-caption { position: relative; z-index: 1; text-align: center; margin-top: 0.5rem; }
 .dog-caption .nm { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; }
@@ -213,19 +207,22 @@ footer a { color: var(--text-soft); } footer a:hover { color: var(--text); }
 
 /* ---------- dark ---------- */
 [data-theme="dark"] {
-  --bg: oklch(19% 0.035 305);
-  --surface: oklch(24% 0.04 305);
-  --surface-2: oklch(28% 0.045 305);
-  --text: oklch(96% 0.012 60);
-  --text-soft: oklch(80% 0.02 305);
-  --text-dim: oklch(64% 0.02 305);
-  --line: oklch(34% 0.04 305);
-  --honey-deep: oklch(80% 0.18 62);
-  --teal-deep: oklch(76% 0.16 330);
-  --green: oklch(78% 0.17 150);
-  --on-accent: oklch(20% 0.05 40);
+  --bg: oklch(22% 0.012 60);
+  --surface: oklch(26% 0.013 60);
+  --surface-2: oklch(30% 0.014 60);
+  --text: oklch(95% 0.01 70);
+  --text-soft: oklch(78% 0.012 70);
+  --text-dim: oklch(62% 0.012 70);
+  --line: oklch(34% 0.014 60);
+  --honey: oklch(74% 0.15 55);
+  --honey-deep: oklch(74% 0.15 55);
+  --honey-soft: oklch(74% 0.15 55 / 0.16);
+  --teal-deep: oklch(74% 0.15 55);
+  --green: oklch(76% 0.15 155);
+  --on-accent: oklch(22% 0.03 50);
 }
-[data-theme="dark"] .nav { background: oklch(19% 0.035 305 / 0.82); }
+[data-theme="dark"] .nav { background: oklch(22% 0.012 60 / 0.82); }
+[data-theme="dark"] .btn-primary:hover { background: oklch(80% 0.15 55); }
 [data-theme="dark"] .nav-cta { background: var(--honey); color: oklch(24% 0.05 60); }
 [data-theme="dark"] .btn-primary { color: oklch(24% 0.05 60); }
 
@@ -382,3 +379,17 @@ footer a { color: var(--text-soft); } footer a:hover { color: var(--text); }
 .faq summary::after { content: '+'; font-size: 1.4rem; color: var(--honey-deep); transition: transform var(--dur) var(--ease); }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq p { color: var(--text-soft); margin-top: 0.7rem; font-size: 1rem; line-height: 1.6; max-width: 68ch; }
+
+/* ===================== FAQ redesign (asymmetric + carded) ===================== */
+.faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; align-items: start; }
+@media (max-width: 820px) { .faq-grid { grid-template-columns: 1fr; gap: 1.75rem; } }
+.faq-aside { position: sticky; top: 92px; }
+@media (max-width: 820px) { .faq-aside { position: static; } }
+.faq-aside h2 { margin: 0.7rem 0 1rem; }
+.faq-aside p { color: var(--text-soft); margin-bottom: 1.3rem; max-width: 28ch; }
+.faq { max-width: none; }
+.faq details { border: 1px solid var(--line); border-radius: var(--r-sm); margin-bottom: 0.7rem; background: var(--surface); padding: 0; transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+.faq details[open] { border-color: oklch(66% 0.15 50 / 0.5); box-shadow: var(--shadow-sm); }
+.faq summary { padding: 1.05rem 1.25rem; font-size: 1.05rem; }
+.faq summary:hover { color: var(--text); }
+.faq p { padding: 0 1.25rem 1.2rem; margin-top: -0.1rem; }

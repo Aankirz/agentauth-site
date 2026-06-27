@@ -149,17 +149,21 @@ export default function Home() {
         {/* FAQ — answer-engine optimization */}
         <section id="faq">
           <div className="wrap">
-            <div className="section-head">
-              <span className="kicker">FAQ</span>
-              <h2>Questions, answered.</h2>
-            </div>
-            <div className="faq">
-              {FAQ.map((f) => (
-                <details key={f.q}>
-                  <summary>{f.q}</summary>
-                  <p>{f.a}</p>
-                </details>
-              ))}
+            <div className="faq-grid">
+              <aside className="faq-aside">
+                <span className="kicker">FAQ</span>
+                <h2>Questions,<br />answered.</h2>
+                <p>Building an agent or an MCP server? Start here.</p>
+                <a className="btn btn-ghost" href={`${GH}#readme`} target="_blank" rel="noopener"><GitHubIcon /> Read the docs</a>
+              </aside>
+              <div className="faq">
+                {FAQ.map((f) => (
+                  <details key={f.q}>
+                    <summary>{f.q}</summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
