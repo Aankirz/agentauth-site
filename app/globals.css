@@ -321,3 +321,44 @@ footer a { color: var(--text-soft); } footer a:hover { color: var(--text); }
 .fconn { align-self: center; color: var(--line); display: grid; place-items: center; padding: 0 0.25rem; }
 .fconn svg { width: 28px; height: 28px; }
 @media (max-width: 760px) { .fconn { transform: rotate(90deg); padding: 0; } }
+
+/* ===================== animated flow explainer ===================== */
+.flowtrack { position: relative; height: 280px; max-width: 900px; margin: 1rem auto 0; }
+@media (max-width: 680px) { .flowtrack { height: 320px; } }
+.lane { position: absolute; left: 0; right: 0; height: 64px; }
+.lane-top { top: 14px; } .lane-bot { bottom: 14px; }
+.fd-rail { position: absolute; left: 12%; right: 12%; top: 50%; border-top: 2px dashed var(--line); }
+.fd-agent { position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 0.85rem; font-weight: 500; color: var(--text-soft); background: var(--surface); border: 1px solid var(--line); padding: 0.35rem 0.7rem; border-radius: 100px; box-shadow: var(--shadow-sm); white-space: nowrap; }
+.fd-out { position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 0.85rem; font-weight: 600; padding: 0.35rem 0.7rem; border-radius: 100px; white-space: nowrap; }
+.fd-out--ok { color: var(--green); background: oklch(72% 0.16 150 / 0.14); }
+.fd-out--no { color: var(--red); background: oklch(63% 0.2 25 / 0.12); }
+.fd-token { position: absolute; top: 50%; left: 16%; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: 0.74rem; padding: 0.25rem 0.55rem; border-radius: 8px; white-space: nowrap; z-index: 2; box-shadow: var(--shadow-sm); }
+.fd-token--allow { background: oklch(72% 0.16 150 / 0.18); color: var(--green); border: 1px solid oklch(72% 0.16 150 / 0.4); animation: flowAllow 4.6s var(--ease) infinite; }
+.fd-token--deny { background: oklch(63% 0.2 25 / 0.16); color: var(--red); border: 1px solid oklch(63% 0.2 25 / 0.4); animation: flowDeny 4.6s var(--ease) infinite; animation-delay: 0.6s; }
+
+@keyframes flowAllow {
+  0% { left: 16%; opacity: 0; }
+  8% { opacity: 1; }
+  40% { left: 44%; }
+  52% { left: 50%; }   /* pause at the gate */
+  88% { left: 84%; opacity: 1; }
+  100% { left: 84%; opacity: 0; }
+}
+@keyframes flowDeny {
+  0% { left: 16%; opacity: 0; }
+  8% { opacity: 1; }
+  44% { left: 44%; }   /* reaches the gate */
+  54% { left: 46%; }
+  60% { left: 43%; }   /* bounces */
+  68% { left: 45%; }
+  100% { left: 24%; opacity: 0; }  /* turned away */
+}
+
+.gate { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; text-align: center; }
+.gate-fox { width: 92px; height: auto; filter: drop-shadow(0 8px 20px oklch(30% 0.05 280 / 0.25)); }
+.gate-label { display: block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); margin-top: 0.3rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fd-token--allow { animation: none; left: 80%; opacity: 1; }
+  .fd-token--deny { animation: none; left: 44%; opacity: 1; }
+}

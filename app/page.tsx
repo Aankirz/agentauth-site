@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Dog } from '../components/Dog';
+import { Fox } from '../components/Fox';
+import { FlowDemo } from '../components/FlowDemo';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { GitHubIcon, IconChoose, IconPass, IconRevoke, Check, Cross, Arrow } from '../components/icons';
 
@@ -10,7 +11,7 @@ export default function Home() {
     <>
       <header className="nav">
         <div className="wrap">
-          <Link className="brand" href="/"><span className="mark"><Dog className="" /></span>AgentAuth</Link>
+          <Link className="brand" href="/"><span className="mark"><Fox className="" /></span>AgentAuth</Link>
           <nav className="nav-links" aria-label="Main navigation">
             <a href="#how">How it works</a>
             <a href="#why">Why</a>
@@ -35,10 +36,10 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-art">
-              <Dog />
+              <Fox />
               <div className="dog-caption">
-                <p className="nm">Watchdog</p>
-                <p className="rl">checks every agent at the gate</p>
+                <p className="nm">Sentry</p>
+                <p className="rl">guards the gate · checks every pass</p>
               </div>
             </div>
           </div>
@@ -49,9 +50,11 @@ export default function Home() {
           <div className="wrap">
             <div className="section-head">
               <span className="kicker">How it works</span>
-              <h2>A grant in, a pass out, revoke whenever.</h2>
+              <h2>Watch the gate do its job.</h2>
+              <p>Every request carries a pass. The fox checks the scope and decides, in real time.</p>
             </div>
-            <div className="howflow">
+            <FlowDemo />
+            <div className="howflow" style={{ marginTop: '3.5rem' }}>
               <div className="fstep">
                 <div className="art"><IconChoose /></div>
                 <p className="num">STEP 01</p>
@@ -110,7 +113,7 @@ export default function Home() {
         <section>
           <div className="wrap">
             <div className="cta-band">
-              <h2>See the watchdog work.</h2>
+              <h2>See the gate in action.</h2>
               <p>A real demo: connect an agent, watch it get allowed and blocked by what you granted, then revoke it.</p>
               <div className="cta-row">
                 <Link className="btn btn-primary" href="/demo">Try the live demo →</Link>

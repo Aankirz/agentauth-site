@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Dog } from '../../components/Dog';
+import { Fox } from '../../components/Fox';
 import { ThemeToggle } from '../../components/ThemeToggle';
 
 const SCOPES = [
@@ -80,7 +80,7 @@ export default function Demo() {
 
       <div className="demo-wrap">
         <div className="demo-hero">
-          <Dog className="demo-dog" />
+          <Fox className="demo-dog" />
           <h1>Inbox Copilot, guarded by AgentAuth</h1>
           <p>A real implementation. The buttons below hit live API routes that mint, verify, and revoke tokens with the actual library, server-side.</p>
         </div>
