@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Dog } from '../components/Dog';
 import { ThemeToggle } from '../components/ThemeToggle';
-import { GitHubIcon, IconChoose, IconPass, IconRevoke, Check, Cross } from '../components/icons';
+import { GitHubIcon, IconChoose, IconPass, IconRevoke, Check, Cross, Arrow } from '../components/icons';
 
 const GH = 'https://github.com/Aankirz/agentauth';
 
@@ -44,29 +44,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HOW — 3 visual steps */}
+        {/* HOW — connected sequence */}
         <section id="how">
           <div className="wrap">
-            <div className="section-head" style={{ marginInline: 'auto', textAlign: 'center', maxWidth: '36ch' }}>
-              <span className="kicker" style={{ justifyContent: 'center' }}>How it works</span>
-              <h2>Three steps. No master keys.</h2>
+            <div className="section-head">
+              <span className="kicker">How it works</span>
+              <h2>A grant in, a pass out, revoke whenever.</h2>
             </div>
-            <div className="steps">
-              <div className="step">
+            <div className="howflow">
+              <div className="fstep">
                 <div className="art"><IconChoose /></div>
-                <p className="num">01</p>
+                <p className="num">STEP 01</p>
                 <h3>You choose what it can do</h3>
                 <p>Pick exact permissions, like <em>read my inbox</em> but never <em>send</em>.</p>
               </div>
-              <div className="step">
+              <div className="fconn"><Arrow /></div>
+              <div className="fstep fstep--key">
                 <div className="art"><IconPass /></div>
-                <p className="num">02</p>
+                <p className="num">STEP 02</p>
                 <h3>It gets a short-lived pass</h3>
                 <p>A signed token carrying only those permissions, good for 15 minutes.</p>
               </div>
-              <div className="step">
+              <div className="fconn"><Arrow /></div>
+              <div className="fstep">
                 <div className="art"><IconRevoke /></div>
-                <p className="num">03</p>
+                <p className="num">STEP 03</p>
                 <h3>You cut it off anytime</h3>
                 <p>Revoke one agent, or all of them. Access stops instantly.</p>
               </div>
@@ -77,8 +79,8 @@ export default function Home() {
         {/* WHY — visual comparison */}
         <section id="why">
           <div className="wrap">
-            <div className="section-head" style={{ marginInline: 'auto', textAlign: 'center', maxWidth: '34ch' }}>
-              <span className="kicker" style={{ justifyContent: 'center' }}>Why not just an API key</span>
+            <div className="section-head">
+              <span className="kicker">Why not just an API key</span>
               <h2>One of these you can take back.</h2>
             </div>
             <div className="compare">
