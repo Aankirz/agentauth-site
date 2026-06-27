@@ -2,9 +2,25 @@ import Link from 'next/link';
 import { Fox } from '../components/Fox';
 import { FlowDemo } from '../components/FlowDemo';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { CopyWidget } from '../components/CopyWidget';
 import { GitHubIcon, IconChoose, IconPass, IconRevoke, Check, Cross, Arrow } from '../components/icons';
 
 const GH = 'https://github.com/Aankirz/agentauth';
+
+const CODE_HTML = `<span class="tok-key">import</span> { <span class="tok-fn">issue</span>, <span class="tok-fn">verify</span>, <span class="tok-fn">revoke</span> } <span class="tok-key">from</span> <span class="tok-str">'agentauth'</span>;
+
+<span class="tok-com">// 1. grant a scoped 15-min pass</span>
+<span class="tok-key">const</span> token = <span class="tok-key">await</span> <span class="tok-fn">issue</span>({
+  userId: <span class="tok-str">'u_alice'</span>,
+  scopes: [<span class="tok-str">'email:read'</span>],   <span class="tok-com">// only what you allow</span>
+});
+
+<span class="tok-com">// 2. gate every action on the pass</span>
+<span class="tok-key">const</span> { scopes } = <span class="tok-key">await</span> <span class="tok-fn">verify</span>(token);
+<span class="tok-com">// → ['email:read']  ✓  email:send is still locked</span>
+
+<span class="tok-com">// 3. revoke on demand — access stops instantly</span>
+<span class="tok-key">await</span> <span class="tok-fn">revoke</span>({ userId: <span class="tok-str">'u_alice'</span> });`;
 
 const FAQ = [
   {
@@ -71,6 +87,7 @@ export default function Home() {
                 <Link className="btn btn-primary" href="/demo">See it in action →</Link>
                 <a className="btn btn-ghost" href={GH} target="_blank" rel="noopener"><GitHubIcon /> GitHub</a>
               </div>
+              <CopyWidget text="npm install agentauth" />
             </div>
             <div className="hero-stage reveal">
               <FlowDemo />
@@ -108,6 +125,29 @@ export default function Home() {
                 <p className="num">STEP 03</p>
                 <h3>You cut it off anytime</h3>
                 <p>Revoke one agent, or all of them. Access stops instantly.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CODE — show it's 3 lines */}
+        <section id="code" style={{ background: 'var(--surface-2)' }}>
+          <div className="wrap">
+            <div className="code-split">
+              <div className="code-lede reveal">
+                <span className="kicker">Ship in minutes</span>
+                <h2>Three calls.<br />No ceremony.</h2>
+                <p>Issue a scoped pass, verify it on every action, revoke it whenever. No new infrastructure — works wherever Node.js does.</p>
+                <CopyWidget text="npm install agentauth" />
+              </div>
+              <div className="reveal">
+                <div className="code-card code-card--main">
+                  <div className="code-head">
+                    <div className="lights"><i /><i /><i /></div>
+                    <span className="file">auth.ts</span>
+                  </div>
+                  <pre dangerouslySetInnerHTML={{ __html: CODE_HTML }} />
+                </div>
               </div>
             </div>
           </div>
