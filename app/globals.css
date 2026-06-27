@@ -410,3 +410,24 @@ footer a { color: var(--text-soft); } footer a:hover { color: var(--text); }
 .ecosystem .sep { color: var(--line); }
 /* the fox gate reads bigger as the centerpiece */
 .hero-stage .gate-fox { width: 104px; }
+
+/* ===================== motion-design: premium entrances ===================== */
+/* visible by default; only hide+animate once JS marks the doc reveal-ready (no-JS/SEO safe) */
+.reveal-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); will-change: opacity, transform; }
+.reveal-ready .reveal.in { opacity: 1; transform: none; }
+/* light stagger across grid children (under 500ms total) */
+.reveal-ready .howflow .fstep.reveal:nth-child(3) { transition-delay: 0.08s; }
+.reveal-ready .howflow .fstep.reveal:nth-child(5) { transition-delay: 0.16s; }
+.reveal-ready .bento .feat.reveal:nth-child(2) { transition-delay: 0.06s; }
+.reveal-ready .bento .feat.reveal:nth-child(3) { transition-delay: 0.12s; }
+.reveal-ready .bento .feat.reveal:nth-child(4) { transition-delay: 0.18s; }
+.reveal-ready .bento .feat.reveal:nth-child(5) { transition-delay: 0.24s; }
+
+/* real press feedback (premium: subtle, no overshoot) */
+.btn:active { transform: translateY(0) scale(0.985); box-shadow: var(--shadow-sm); transition-duration: 0.12s; }
+.nav-cta:active { transform: scale(0.97); }
+.action-btn:active:not(:disabled) { transform: scale(0.99); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal { opacity: 1 !important; transform: none !important; }
+}

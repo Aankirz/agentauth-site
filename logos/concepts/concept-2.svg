@@ -1,0 +1,35 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AgentAuth: a security shield with a fox-and-keyhole negative-space cutout">
+  <g id="icon">
+    <!-- Heraldic shield with fox-shaped negative space cut out (even-odd) -->
+    <path fill="#E08A3A" fill-rule="evenodd" d="
+      M 166 80
+      L 346 80
+      Q 382 80 382 116
+      L 382 270
+      C 382 360 330 410 256 446
+      C 182 410 130 360 130 270
+      L 130 116
+      Q 130 80 166 80
+      Z
+      M 206 150
+      C 198 176 192 196 196 218
+      C 200 266 228 306 256 338
+      C 284 306 312 266 316 218
+      C 320 196 314 176 306 150
+      C 290 174 272 190 256 202
+      C 240 190 222 174 206 150
+      Z
+    "/>
+    <!-- Cream backing fills the cutout so the fox reads as a clean two-tone reveal -->
+    <path fill="#FBEFD9" d="
+      M 206 150
+      C 198 176 192 196 196 218
+      C 200 266 228 306 256 338
+      C 284 306 312 266 316 218
+      C 320 196 314 176 306 150
+      C 290 174 272 190 256 202
+      C 240 190 222 174 206 150
+      Z
+    " transform="translate(0,0)"/>
+  </g>
+</svg>

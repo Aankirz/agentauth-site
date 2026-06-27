@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <g id="icon">
+    <!-- A-monogram silhouette: gate/shield legs with twin fox-ear peaks, open gate base -->
+    <path fill="#2C2733" fill-rule="evenodd" d="
+      M 96 432
+      L 180 84
+      L 256 150
+      L 332 84
+      L 416 432
+      L 324 432
+      L 256 210
+      L 188 432
+      Z" />
+
+    <!-- Crossbar = gate bar (orange) -->
+    <rect fill="#E08A3A" x="150" y="298" width="212" height="50" rx="6" />
+
+    <!-- Keyhole punched into the crossbar (auth) -->
+    <circle fill="#2C2733" cx="256" cy="314" r="14" />
+    <path fill="#2C2733" d="M 247 320 L 265 320 L 271 346 L 241 346 Z" />
+  </g>
+</svg>

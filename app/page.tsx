@@ -63,7 +63,7 @@ export default function Home() {
         {/* HERO — product-forward, animation as centerpiece */}
         <section className="hero hero--center">
           <div className="wrap">
-            <div className="hero-head">
+            <div className="hero-head reveal">
               <span className="pill"><span className="dot" /> Open source · works with any agent</span>
               <h1>Give AI agents a pass,<br /><span className="hl">not your master key.</span></h1>
               <p className="lede">Agents read your email, call your APIs, even spend your money. Hand each one a limited pass instead: only what you allow, gone in minutes, revoked in a click.</p>
@@ -72,10 +72,10 @@ export default function Home() {
                 <a className="btn btn-ghost" href={GH} target="_blank" rel="noopener"><GitHubIcon /> GitHub</a>
               </div>
             </div>
-            <div className="hero-stage">
+            <div className="hero-stage reveal">
               <FlowDemo />
             </div>
-            <div className="ecosystem">
+            <div className="ecosystem reveal">
               Works with <b>ChatGPT</b><span className="sep">·</span><b>Claude</b><span className="sep">·</span><b>Gemini</b><span className="sep">·</span><b>MCP servers</b><span className="sep">·</span>any agent you build
             </div>
           </div>
@@ -84,26 +84,26 @@ export default function Home() {
         {/* HOW — connected sequence */}
         <section id="how">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="kicker">How it works</span>
               <h2>A grant in, a pass out, revoke whenever.</h2>
             </div>
             <div className="howflow">
-              <div className="fstep">
+              <div className="fstep reveal">
                 <div className="art"><IconChoose /></div>
                 <p className="num">STEP 01</p>
                 <h3>You choose what it can do</h3>
                 <p>Pick exact permissions, like <em>read my inbox</em> but never <em>send</em>.</p>
               </div>
               <div className="fconn"><Arrow /></div>
-              <div className="fstep fstep--key">
+              <div className="fstep fstep--key reveal">
                 <div className="art"><IconPass /></div>
                 <p className="num">STEP 02</p>
                 <h3>It gets a short-lived pass</h3>
                 <p>A signed token carrying only those permissions, good for 15 minutes.</p>
               </div>
               <div className="fconn"><Arrow /></div>
-              <div className="fstep">
+              <div className="fstep reveal">
                 <div className="art"><IconRevoke /></div>
                 <p className="num">STEP 03</p>
                 <h3>You cut it off anytime</h3>
@@ -116,12 +116,12 @@ export default function Home() {
         {/* WHY — visual comparison */}
         <section id="why">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="kicker">Why not just an API key</span>
               <h2>One of these you can take back.</h2>
             </div>
             <div className="compare">
-              <div className="cmp bad">
+              <div className="cmp bad reveal">
                 <h3><span className="tag">API key</span> What agents get today</h3>
                 <ul>
                   <li><Cross /> Full access to everything</li>
@@ -130,7 +130,7 @@ export default function Home() {
                   <li><Cross /> No record of what it did</li>
                 </ul>
               </div>
-              <div className="cmp good">
+              <div className="cmp good reveal">
                 <h3><span className="tag">AgentAuth pass</span> What you give instead</h3>
                 <ul>
                   <li><Check /> Only the permissions you pick</li>
@@ -146,7 +146,7 @@ export default function Home() {
         {/* FAQ — answer-engine optimization */}
         <section id="faq">
           <div className="wrap">
-            <div className="faq-grid">
+            <div className="faq-grid reveal">
               <aside className="faq-aside">
                 <span className="kicker">FAQ</span>
                 <h2>Questions,<br />answered.</h2>
@@ -169,7 +169,7 @@ export default function Home() {
         {/* CTA */}
         <section>
           <div className="wrap">
-            <div className="cta-band">
+            <div className="cta-band reveal">
               <h2>See the gate in action.</h2>
               <p>A real demo: connect an agent, watch it get allowed and blocked by what you granted, then revoke it.</p>
               <div className="cta-row">

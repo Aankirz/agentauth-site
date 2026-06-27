@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
+import { RevealInit } from '../components/RevealInit';
 import './globals.css';
 
 const SITE = 'https://agentauth-site.vercel.app';
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <RevealInit />
         <Analytics />
       </body>
     </html>

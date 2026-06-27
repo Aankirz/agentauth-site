@@ -1,0 +1,25 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AgentAuth geometric fox head">
+  <g id="icon">
+    <!-- Ears (accent orange) -->
+    <polygon points="150,170 116,64 222,182" fill="#E08A3A"/>
+    <polygon points="362,170 396,64 290,182" fill="#E08A3A"/>
+
+    <!-- Inner ears (deep ink) -->
+    <polygon points="152,158 138,98 200,172" fill="#2C2733"/>
+    <polygon points="360,158 374,98 312,172" fill="#2C2733"/>
+
+    <!-- Face (accent orange) -->
+    <polygon points="150,170 362,170 336,320 256,432 176,320" fill="#E08A3A"/>
+
+    <!-- Cream muzzle -->
+    <polygon points="198,258 314,258 256,406" fill="#FBEFD9"/>
+
+    <!-- Eyes (deep ink, angular and confident) -->
+    <polygon points="188,222 236,234 224,250 182,242" fill="#2C2733"/>
+    <polygon points="324,222 276,234 288,250 330,242" fill="#2C2733"/>
+
+    <!-- Nose as a tiny keyhole (auth cue, deep ink) -->
+    <circle cx="256" cy="330" r="16" fill="#2C2733"/>
+    <polygon points="244,335 268,335 256,374" fill="#2C2733"/>
+  </g>
+</svg>
