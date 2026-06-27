@@ -31,7 +31,7 @@
 
   --r: 20px;
   --r-sm: 13px;
-  --maxw: 1200px;
+  --maxw: 1280px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 280ms;
 
@@ -256,3 +256,50 @@ footer a { color: var(--text-soft); } footer a:hover { color: var(--text); }
 .token-box { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); word-break: break-all; background: var(--surface-2); padding: 0.6rem 0.75rem; border-radius: 8px; margin-top: 1rem; line-height: 1.5; }
 .danger-btn { background: oklch(63% 0.2 25 / 0.12); color: var(--red); border: 1px solid oklch(63% 0.2 25 / 0.3); border-radius: 100px; padding: 0.6rem 1.1rem; font: inherit; font-weight: 600; cursor: pointer; margin-top: 1rem; }
 .danger-btn:hover { background: oklch(63% 0.2 25 / 0.2); }
+
+/* ===================== mascot extra motion ===================== */
+#dog-key { animation: keypulse 2.6s var(--ease) infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes keypulse { 0%,100% { opacity: 1 } 50% { opacity: 0.5 } }
+
+/* ===================== visual explainer ===================== */
+.gh-icon { width: 18px; height: 18px; display: block; }
+.nav-cta { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+/* 3-step "how it works" */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+.step { text-align: center; padding: 2rem 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow-sm); }
+.step .art { width: 84px; height: 84px; margin: 0 auto 1.2rem; display: grid; place-items: center; border-radius: 50%; background: oklch(76% 0.14 70 / 0.14); }
+.step .art svg { width: 44px; height: 44px; }
+.step h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.step p { color: var(--text-soft); font-size: 1rem; }
+.step .num { font-family: var(--font-mono); font-size: 0.8rem; color: var(--honey-deep); font-weight: 600; }
+
+/* connecting arrows between steps */
+.steps-flow { position: relative; }
+
+/* compare: key vs pass */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+@media (max-width: 680px) { .compare { grid-template-columns: 1fr; } }
+.cmp { border-radius: var(--r); padding: 1.75rem; border: 1px solid var(--line); }
+.cmp.bad { background: oklch(63% 0.2 25 / 0.06); border-color: oklch(63% 0.2 25 / 0.25); }
+.cmp.good { background: oklch(72% 0.16 150 / 0.08); border-color: oklch(72% 0.16 150 / 0.3); }
+.cmp h3 { font-size: 1.2rem; display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; }
+.cmp .tag { font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 100px; }
+.cmp.bad .tag { background: oklch(63% 0.2 25 / 0.16); color: var(--red); }
+.cmp.good .tag { background: oklch(72% 0.16 150 / 0.18); color: var(--green); }
+.cmp ul { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.cmp li { display: flex; align-items: center; gap: 0.7rem; font-size: 1.02rem; color: var(--text); }
+.cmp li svg { flex: none; width: 20px; height: 20px; }
+.cmp.bad li { color: var(--text-soft); }
+
+/* big CTA band */
+.cta-band { text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: clamp(2.5rem, 5vw, 4rem); box-shadow: var(--shadow); }
+.cta-band h2 { margin-bottom: 0.8rem; }
+.cta-band p { color: var(--text-soft); margin-bottom: 1.8rem; font-size: 1.1rem; }
+.cta-band .cta-row { justify-content: center; }
+
+/* mascot sizing in small contexts */
+.brand .mark { display: inline-grid; place-items: center; }
+.brand .mark svg { width: 100%; height: 100%; }
+.demo-dog { width: 92px; height: auto; display: block; margin: 0 auto 0.4rem; }

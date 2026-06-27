@@ -80,7 +80,7 @@ export default function Demo() {
 
       <div className="demo-wrap">
         <div className="demo-hero">
-          <div style={{ width: 120, margin: '0 auto 0.5rem' }}><Dog /></div>
+          <Dog className="demo-dog" />
           <h1>Inbox Copilot, guarded by AgentAuth</h1>
           <p>A real implementation. The buttons below hit live API routes that mint, verify, and revoke tokens with the actual library, server-side.</p>
         </div>

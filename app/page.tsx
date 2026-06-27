@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Dog, Paw } from '../components/Dog';
+import { Dog } from '../components/Dog';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { GitHubIcon, IconChoose, IconPass, IconRevoke, Check, Cross } from '../components/icons';
 
 const GH = 'https://github.com/Aankirz/agentauth';
 
@@ -9,80 +10,110 @@ export default function Home() {
     <>
       <header className="nav">
         <div className="wrap">
-          <Link className="brand" href="/"><span className="mark"><Paw size={28} color="var(--honey-deep)" /></span>AgentAuth</Link>
+          <Link className="brand" href="/"><span className="mark"><Dog className="" /></span>AgentAuth</Link>
           <nav className="nav-links" aria-label="Main navigation">
             <a href="#how">How it works</a>
             <a href="#why">Why</a>
             <Link href="/demo">Demo</Link>
             <ThemeToggle />
-            <a className="nav-cta" href={GH} target="_blank" rel="noopener">GitHub ★</a>
+            <a className="nav-cta" href={GH} target="_blank" rel="noopener"><GitHubIcon /> GitHub</a>
           </nav>
         </div>
       </header>
 
       <main>
+        {/* HERO — one clear idea */}
         <section className="hero">
           <div className="wrap hero-grid">
             <div>
-              <span className="badge-tag"><Paw size={15} color="var(--honey-deep)" /> Open source · MIT · zero-dep core</span>
-              <h1>The <span className="hl">watchdog</span> for your AI agents.</h1>
-              <p className="lede">Every agent shows its badge at the gate. Only the scopes you approved get through, and you can call it off anytime.</p>
-              <div className="chips">
-                <span className="chip"><b>issue</b> · verify · revoke</span>
-                <span className="chip">15-min leash</span>
-                <span className="chip">MCP-ready</span>
-              </div>
+              <span className="badge-tag">Open-source auth for AI agents</span>
+              <h1>Give AI agents a pass, <span className="hl">not your master key.</span></h1>
+              <p className="lede">Agents can read your email, call your APIs, even spend your money. AgentAuth hands each one a limited pass instead: only what you allow, expiring in minutes, revocable in one click.</p>
               <div className="cta-row">
-                <Link className="btn btn-primary" href="/demo">Try the live demo</Link>
-                <a className="btn btn-ghost" href={GH} target="_blank" rel="noopener">View on GitHub</a>
+                <Link className="btn btn-primary" href="/demo">See it in action →</Link>
+                <a className="btn btn-ghost" href={GH} target="_blank" rel="noopener"><GitHubIcon /> GitHub</a>
               </div>
             </div>
             <div className="hero-art">
               <Dog />
               <div className="dog-caption">
                 <p className="nm">Watchdog</p>
-                <p className="rl">checks every badge at the gate</p>
+                <p className="rl">checks every agent at the gate</p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* HOW — 3 visual steps */}
         <section id="how">
           <div className="wrap">
-            <div className="section-head">
-              <span className="kicker"><Paw size={16} color="var(--honey-deep)" /> The model</span>
-              <h2>A grant becomes a token. The token is all the agent ever holds.</h2>
-              <p>The user grants. AgentAuth mints. Your server checks the badge. Anyone can call the dog off.</p>
+            <div className="section-head" style={{ marginInline: 'auto', textAlign: 'center', maxWidth: '36ch' }}>
+              <span className="kicker" style={{ justifyContent: 'center' }}>How it works</span>
+              <h2>Three steps. No master keys.</h2>
             </div>
-            <div className="flow">
-              <div className="flow-step"><div className="n">01 Grant</div><h3>User consents</h3><p>Approves an agent for specific <code>scopes</code> on a short leash.</p></div>
-              <div className="flow-step"><div className="n">02 Issue</div><h3>Mint a token</h3><p><code>issue()</code> returns a signed, short-lived badge.</p></div>
-              <div className="flow-step"><div className="n">03 Verify</div><h3>Dog checks it</h3><p><code>verify()</code> sniffs signature, expiry, scopes.</p></div>
-              <div className="flow-step"><div className="n">04 Revoke</div><h3>Call it off</h3><p><code>revoke()</code> by token, agent, or user.</p></div>
+            <div className="steps">
+              <div className="step">
+                <div className="art"><IconChoose /></div>
+                <p className="num">01</p>
+                <h3>You choose what it can do</h3>
+                <p>Pick exact permissions, like <em>read my inbox</em> but never <em>send</em>.</p>
+              </div>
+              <div className="step">
+                <div className="art"><IconPass /></div>
+                <p className="num">02</p>
+                <h3>It gets a short-lived pass</h3>
+                <p>A signed token carrying only those permissions, good for 15 minutes.</p>
+              </div>
+              <div className="step">
+                <div className="art"><IconRevoke /></div>
+                <p className="num">03</p>
+                <h3>You cut it off anytime</h3>
+                <p>Revoke one agent, or all of them. Access stops instantly.</p>
+              </div>
             </div>
           </div>
         </section>
 
+        {/* WHY — visual comparison */}
         <section id="why">
           <div className="wrap">
-            <div className="section-head">
-              <span className="kicker"><Paw size={16} color="var(--honey-deep)" /> Why not just an API key</span>
-              <h2>Because a key can&apos;t be scoped, revoked, or expired.</h2>
+            <div className="section-head" style={{ marginInline: 'auto', textAlign: 'center', maxWidth: '34ch' }}>
+              <span className="kicker" style={{ justifyContent: 'center' }}>Why not just an API key</span>
+              <h2>One of these you can take back.</h2>
             </div>
-            <div className="bento">
-              <div className="feat span-2">
-                <div className="ic">Scoped</div>
-                <h3>Least privilege, enforced</h3>
-                <p>Every token carries explicit scopes. <code>verify</code> rejects anything beyond them, with wildcards (<code>email:*</code>) for grouping. The agent only ever sees what the user approved.</p>
+            <div className="compare">
+              <div className="cmp bad">
+                <h3><span className="tag">API key</span> What agents get today</h3>
+                <ul>
+                  <li><Cross /> Full access to everything</li>
+                  <li><Cross /> Never expires</li>
+                  <li><Cross /> Can&apos;t be taken back</li>
+                  <li><Cross /> No record of what it did</li>
+                </ul>
               </div>
-              <div className="feat"><div className="ic">Short leash</div><h3>Small blast radius</h3><p>15-minute TTL by default. A leaked token is worthless in minutes.</p></div>
-              <div className="feat"><div className="ic">Revocable</div><h3>Kill switch</h3><p>Revoke a token, or every token an agent or user holds, in one call.</p></div>
-              <div className="feat"><div className="ic">Stateless</div><h3>No DB round-trip</h3><p>Signed JWTs verify locally. Opt into revocation checks only where needed.</p></div>
-              <div className="feat"><div className="ic">Auditable</div><h3>Every event, hooked</h3><p>Structured issued / verified / denied / revoked events for your trail.</p></div>
+              <div className="cmp good">
+                <h3><span className="tag">AgentAuth pass</span> What you give instead</h3>
+                <ul>
+                  <li><Check /> Only the permissions you pick</li>
+                  <li><Check /> Expires in minutes</li>
+                  <li><Check /> Revoke instantly</li>
+                  <li><Check /> Every action logged</li>
+                </ul>
+              </div>
             </div>
-            <div className="callout" style={{ marginTop: '2rem' }}>
-              <span className="pup"><Paw size={34} color="var(--honey-deep)" /></span>
-              <span><b>See it work for real.</b> The live demo runs this exact library server-side: connect an agent, watch scopes enforced on real API routes, then revoke it. <Link href="/demo">Open the demo →</Link></span>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section>
+          <div className="wrap">
+            <div className="cta-band">
+              <h2>See the watchdog work.</h2>
+              <p>A real demo: connect an agent, watch it get allowed and blocked by what you granted, then revoke it.</p>
+              <div className="cta-row">
+                <Link className="btn btn-primary" href="/demo">Try the live demo →</Link>
+                <a className="btn btn-ghost" href={GH} target="_blank" rel="noopener"><GitHubIcon /> Star on GitHub</a>
+              </div>
             </div>
           </div>
         </section>
@@ -90,7 +121,7 @@ export default function Home() {
 
       <footer>
         <div className="wrap">
-          <span><Paw size={16} color="var(--text-dim)" /> AgentAuth · MIT · built for the agent era</span>
+          <span>AgentAuth · MIT · built for the agent era</span>
           <span className="links">
             <a href={GH} target="_blank" rel="noopener">GitHub</a>
             <a href={`${GH}#readme`} target="_blank" rel="noopener">Docs</a>
