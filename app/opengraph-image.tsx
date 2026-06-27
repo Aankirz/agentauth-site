@@ -4,17 +4,11 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 export const alt = 'AgentAuth — a pass for your AI agents, not your master key';
 
-const SHIELD =
-  'M48 24 L70 50 Q85 58 100 54 Q115 58 130 50 L152 24 Q170 50 170 78 C168 126 146 162 100 186 C54 162 32 126 30 78 Q30 50 48 24 Z';
-
-const fox = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="320" height="320">
-<path d="${SHIELD}" fill="#2C2733"/>
-<g transform="translate(100 100) scale(0.88) translate(-100 -100)"><path d="${SHIELD}" fill="#E88A30"/></g>
-<path d="M48 24 L41 41 L60 40 Z" fill="#2C2733"/><path d="M152 24 L159 41 L140 40 Z" fill="#2C2733"/>
-<path d="M100 104 C126 104 138 122 133 142 C128 159 112 167 100 168 C88 167 72 159 67 142 C62 122 74 104 100 104 Z" fill="#FBEFD9"/>
-<ellipse cx="72" cy="94" rx="9" ry="10.5" fill="#2C2733"/><circle cx="75" cy="90" r="2.8" fill="#fff"/>
-<ellipse cx="128" cy="94" rx="9" ry="10.5" fill="#2C2733"/><circle cx="131" cy="90" r="2.8" fill="#fff"/>
-<circle cx="100" cy="120" r="8" fill="#2C2733"/><path d="M100 124 L106 146 Q100 151 94 146 Z" fill="#2C2733"/>
+const fox = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="330" height="330">
+<path fill="#E08A3A" d="M168 78 L344 78 Q380 78 380 114 L380 268 C380 358 330 408 256 446 C182 408 132 358 132 268 L132 114 Q132 78 168 78 Z"/>
+<path fill="#FBEFD9" d="M198 128 L219 188 Q256 202 293 188 L314 128 C331 157 337 207 327 248 C319 305 290 348 256 372 C222 348 193 305 185 248 C175 207 181 157 198 128 Z"/>
+<circle cx="226" cy="214" r="11" fill="#E08A3A"/><circle cx="286" cy="214" r="11" fill="#E08A3A"/>
+<circle cx="256" cy="252" r="17" fill="#E08A3A"/><path d="M256 260 L271 308 Q256 316 241 308 Z" fill="#E08A3A"/>
 </svg>`;
 const foxData = `data:image/svg+xml;utf8,${encodeURIComponent(fox)}`;
 
