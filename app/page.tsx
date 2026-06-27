@@ -60,24 +60,23 @@ export default function Home() {
       </header>
 
       <main>
-        {/* HERO — one clear idea */}
-        <section className="hero">
-          <div className="wrap hero-grid">
-            <div>
-              <span className="badge-tag">Open-source auth for AI agents &amp; MCP servers</span>
-              <h1>Give AI agents a pass, <span className="hl">not your master key.</span></h1>
-              <p className="lede">Agents can read your email, call your APIs, even spend your money. AgentAuth hands each one a limited pass instead: only what you allow, expiring in minutes, revocable in one click.</p>
+        {/* HERO — product-forward, animation as centerpiece */}
+        <section className="hero hero--center">
+          <div className="wrap">
+            <div className="hero-head">
+              <span className="pill"><span className="dot" /> Open source · works with any agent</span>
+              <h1>Give AI agents a pass,<br /><span className="hl">not your master key.</span></h1>
+              <p className="lede">Agents read your email, call your APIs, even spend your money. Hand each one a limited pass instead: only what you allow, gone in minutes, revoked in a click.</p>
               <div className="cta-row">
                 <Link className="btn btn-primary" href="/demo">See it in action →</Link>
                 <a className="btn btn-ghost" href={GH} target="_blank" rel="noopener"><GitHubIcon /> GitHub</a>
               </div>
             </div>
-            <div className="hero-art">
-              <Fox />
-              <div className="dog-caption">
-                <p className="nm">Sentry</p>
-                <p className="rl">guards the gate · checks every pass</p>
-              </div>
+            <div className="hero-stage">
+              <FlowDemo />
+            </div>
+            <div className="ecosystem">
+              Works with <b>ChatGPT</b><span className="sep">·</span><b>Claude</b><span className="sep">·</span><b>Gemini</b><span className="sep">·</span><b>MCP servers</b><span className="sep">·</span>any agent you build
             </div>
           </div>
         </section>
@@ -87,11 +86,9 @@ export default function Home() {
           <div className="wrap">
             <div className="section-head">
               <span className="kicker">How it works</span>
-              <h2>Watch the gate do its job.</h2>
-              <p>Every request carries a pass. The fox checks the scope and decides, in real time.</p>
+              <h2>A grant in, a pass out, revoke whenever.</h2>
             </div>
-            <FlowDemo />
-            <div className="howflow" style={{ marginTop: '3.5rem' }}>
+            <div className="howflow">
               <div className="fstep">
                 <div className="art"><IconChoose /></div>
                 <p className="num">STEP 01</p>

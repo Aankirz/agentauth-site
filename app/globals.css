@@ -393,3 +393,20 @@ footer a { color: var(--text-soft); } footer a:hover { color: var(--text); }
 .faq summary { padding: 1.05rem 1.25rem; font-size: 1.05rem; }
 .faq summary:hover { color: var(--text); }
 .faq p { padding: 0 1.25rem 1.2rem; margin-top: -0.1rem; }
+
+/* ===================== hero v2 — product-forward, supermemory-inspired ===================== */
+.hero--center { text-align: center; padding-top: clamp(3rem, 7vw, 6.5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.hero-head { max-width: 800px; margin: 0 auto; }
+.pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.85rem; font-weight: 500; color: var(--text-soft); background: var(--surface); border: 1px solid var(--line); padding: 0.4rem 0.9rem 0.4rem 0.7rem; border-radius: 100px; box-shadow: var(--shadow-sm); margin-bottom: 1.6rem; }
+.pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px oklch(64% 0.14 155 / 0.22); }
+.hero--center h1 { font-size: clamp(2.8rem, 1.5rem + 5vw, 5.2rem); letter-spacing: -0.04em; line-height: 1.02; }
+.hero--center .lede { margin: 1.5rem auto 0; max-width: 52ch; font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); }
+.hero--center .cta-row { justify-content: center; margin-top: 2.25rem; }
+.hero-stage { margin: clamp(2.75rem, 5vw, 4.5rem) auto 0; max-width: 1000px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow-lg); padding: clamp(1.25rem, 3vw, 2.25rem); position: relative; overflow: hidden; }
+.hero-stage::before { content: 'live'; position: absolute; top: 1rem; right: 1.1rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
+.hero-stage .flowtrack { margin-top: 0.5rem; }
+.ecosystem { margin-top: 2.5rem; font-size: 0.98rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; align-items: center; justify-content: center; }
+.ecosystem b { color: var(--text); font-weight: 600; }
+.ecosystem .sep { color: var(--line); }
+/* the fox gate reads bigger as the centerpiece */
+.hero-stage .gate-fox { width: 104px; }
