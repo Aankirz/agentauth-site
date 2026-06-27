@@ -6,6 +6,43 @@ import { GitHubIcon, IconChoose, IconPass, IconRevoke, Check, Cross, Arrow } fro
 
 const GH = 'https://github.com/Aankirz/agentauth';
 
+const FAQ = [
+  {
+    q: 'What is AgentAuth?',
+    a: 'AgentAuth is open-source, OAuth-style authorization for AI agents and MCP servers. It issues scoped, short-lived, revocable tokens so an agent can act on a user’s behalf without a full-access API key.',
+  },
+  {
+    q: 'How is AgentAuth different from an API key?',
+    a: 'An API key grants full access, never expires, and can’t be taken back. An AgentAuth token is limited to the exact scopes you approve, expires in minutes, can be revoked instantly, and every use is logged.',
+  },
+  {
+    q: 'Does AgentAuth work with MCP servers?',
+    a: 'Yes. AgentAuth issues and verifies scoped tokens for MCP servers and agent tools, matching the MCP OAuth-style authorization model where each call is checked against the permissions the user granted.',
+  },
+  {
+    q: 'What are scoped, short-lived tokens?',
+    a: 'A scoped token carries only the permissions you grant, such as email:read but not email:send. Short-lived means it expires fast (15 minutes by default), so a leaked token is worthless within minutes.',
+  },
+  {
+    q: 'How do you revoke an AI agent’s access?',
+    a: 'Call revoke() by token, by agent, or by user. The next request that agent makes is rejected instantly, so you can disconnect a misbehaving agent in one line.',
+  },
+  {
+    q: 'Is AgentAuth free and open source?',
+    a: 'Yes. AgentAuth is MIT licensed and free to use. The core has a single dependency (jose) and runs anywhere Node.js does.',
+  },
+];
+
+const FAQ_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
 export default function Home() {
   return (
     <>
@@ -27,7 +64,7 @@ export default function Home() {
         <section className="hero">
           <div className="wrap hero-grid">
             <div>
-              <span className="badge-tag">Open-source auth for AI agents</span>
+              <span className="badge-tag">Open-source auth for AI agents &amp; MCP servers</span>
               <h1>Give AI agents a pass, <span className="hl">not your master key.</span></h1>
               <p className="lede">Agents can read your email, call your APIs, even spend your money. AgentAuth hands each one a limited pass instead: only what you allow, expiring in minutes, revocable in one click.</p>
               <div className="cta-row">
@@ -107,6 +144,25 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* FAQ — answer-engine optimization */}
+        <section id="faq">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="kicker">FAQ</span>
+              <h2>Questions, answered.</h2>
+            </div>
+            <div className="faq">
+              {FAQ.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
         </section>
 
         {/* CTA */}

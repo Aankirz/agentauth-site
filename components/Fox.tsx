@@ -9,9 +9,10 @@ export function Fox({ className = 'dog-illu' }: { className?: string }) {
     <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sentry, the AgentAuth fox">
       <title>Sentry</title>
       <defs>
-        <linearGradient id="foxfur" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#F4B65C" />
-          <stop offset="1" stopColor="#E08A2A" />
+        <linearGradient id="foxfur" x1="0.15" y1="0" x2="0.85" y2="1">
+          <stop offset="0" stopColor="#FFB23E" />
+          <stop offset="0.5" stopColor="#F2542D" />
+          <stop offset="1" stopColor="#C9286B" />
         </linearGradient>
       </defs>
       <g id="dog-bob">
